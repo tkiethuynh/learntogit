@@ -24,7 +24,7 @@ def predict_using_gain_guess(estimated_weight, gain_rate, do_print=False):
             print("previous estimate: %8.2f, prediction: %8.2f, estimate: %8.2f" % (
                 estimated_weight, predicted_weight, estimated_weight))
             print()
-    return estimates, predictions@
+    return estimates, predictions
 
 
 initial_estimate = 160
