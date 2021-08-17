@@ -6,8 +6,8 @@ weights = [158.0, 164.2, 160.3, 159.9, 162.1, 164.6,
            169.6, 167.4, 166.4, 171.0, 171.2, 172.6]
 
 time_step = 1.0  # day
-scale_factor = 4.0/10
-
+weight_scale = 4./10
+gain_scale = 1./3
 
 def plot_measurements(xs, ys=None, dt=None, color='k', lw=1, label='Measurements', lines=False, **kwargs):
     if ys is None and dt is not None:
@@ -95,16 +95,20 @@ def plot_gh_results(weights, estimates, predictions, actual, time_step=0):
     plt.show()
 
 
-def predict_using_gain_guess(estimated_weight, gain_rate, do_print=False):
+def predict_using_gain_guess(estimated_weight, init_gain_rate, do_print=False):
     # storage for the filtered results
     estimates, predictions = [estimated_weight], []
+    gain_rate = init_gain_rate
 
     for z in weights:
         # predict new position
         predicted_weight = estimated_weight + gain_rate*time_step
+        # update step
+        residual = z - predicted_weight
+        gain_rate = gain_rate + gain_scale * (residual/time_step)
         # update filter
         estimated_weight = predicted_weight + \
-            scale_factor * (z-predicted_weight)
+            weight_scale * residual
         # save and log
         estimates.append(estimated_weight)
         predictions.append(predicted_weight)
@@ -117,6 +121,6 @@ def predict_using_gain_guess(estimated_weight, gain_rate, do_print=False):
 
 initial_estimate = 160
 estimates, predictions = predict_using_gain_guess(
-    estimated_weight=initial_estimate, gain_rate=1, do_print=True)
+    estimated_weight=initial_estimate, init_gain_rate=-1, do_print=True)
 print(weights)
 plot_gh_results(weights, estimates, predictions, [160, 172])

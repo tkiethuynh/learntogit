@@ -1,4 +1,5 @@
 import numpy as np
-measurements = np.random.normal(160, 5, size=10000)
-mean = measurements.mean()
-print(f'Average of Meansurements is {mean:.4f}')
+import matplotlib.pyplot as plt
+x = np.linspace(0,20,100)
+plt.plot(x, np.sin(x))
+plt.show()
