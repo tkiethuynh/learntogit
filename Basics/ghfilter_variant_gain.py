@@ -9,6 +9,7 @@ time_step = 1.0  # day
 weight_scale = 4./10
 gain_scale = 1./3
 
+
 def plot_measurements(xs, ys=None, dt=None, color='k', lw=1, label='Measurements', lines=False, **kwargs):
     if ys is None and dt is not None:
         ys = xs
