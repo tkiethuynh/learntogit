@@ -1,5 +1,5 @@
 import numpy as np
-import book_plots
+import kf_book.book_plots
 import matplotlib.pyplot as plt
 
 hallway = np.array([1, 1, 0, 0, 0, 0, 0, 0, 1, 0])

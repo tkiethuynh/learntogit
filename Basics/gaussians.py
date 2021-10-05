@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import book_plots
+import kf_book.book_plots
 from filterpy.stats import gaussian
 from scipy.stats import norm
 from numpy.random import randn

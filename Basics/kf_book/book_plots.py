@@ -247,7 +247,6 @@ def bar_plot(pos, x=None, ylim=(0,1), title=None, c='#30a2da',
     plt.xticks(np.asarray(x), x)
     if title is not None:
         plt.title(title)
-    #plt.show()
 
 
 def plot_belief_vs_prior(belief, prior, **kwargs):
