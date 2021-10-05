@@ -11,8 +11,8 @@ ys = randn(500)*1.0 + 10.0
 
 ####################
 
-gaussian = namedtuple('Gaussian', ['mean', 'var'])
-gaussian.__repr__ = lambda s: '𝒩(μ={:.3f}, 𝜎²={:.3f})'.format(s[0], s[1])
+#gaussian = namedtuple('Gaussian', ['mean', 'var'])
+#gaussian.__repr__ = lambda s: '𝒩(μ={:.3f}, 𝜎²={:.3f})'.format(s[0], s[1])
 
 g1 = gaussian(3.4, 10.1)
 g2 = gaussian(mean=4.5, var=0.2**2)
@@ -52,4 +52,6 @@ ys = [stats.gaussian(x, estimated_pos.mean, estimated_pos.var) for x in xs]
 plt.plot(xs, ys, label='$\mathcal{N}(25,0.43)$', ls='-.')
 
 plt.legend()
-plt.show()
+#plt.show()
+
+######################
