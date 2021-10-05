@@ -1,5 +1,5 @@
 import numpy as np
-import book_plots
+import kf_book.book_plots
 import matplotlib.pyplot as plt
 import random
 from filterpy.discrete_bayes import normalize

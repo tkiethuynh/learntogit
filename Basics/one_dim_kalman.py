@@ -11,7 +11,7 @@ ys = randn(500)*1.0 + 10.0
 
 ####################
 
-#gaussian = namedtuple('Gaussian', ['mean', 'var'])
+gaussian = namedtuple('Gaussian', ['mean', 'var'])
 #gaussian.__repr__ = lambda s: '𝒩(μ={:.3f}, 𝜎²={:.3f})'.format(s[0], s[1])
 
 g1 = gaussian(3.4, 10.1)
@@ -55,3 +55,4 @@ plt.legend()
 #plt.show()
 
 ######################
+
