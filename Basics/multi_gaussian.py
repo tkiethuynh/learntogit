@@ -41,6 +41,19 @@ mu = [2.5, 6.5]
 P = [[8.0, 0.0],
      [0.0, 3.0]]
 multivariate_gaussian(x, mu, P)
-mkf_internal.plot_3d_sampled_covariance(mu, P)
+#mkf_internal.plot_3d_sampled_covariance(mu, P)
 print(f'{multivariate_normal(mu, P).pdf(x):.4f}')
+#mkf_internal.plot_3_covariances()
+
+
+#########################
+
+from filterpy.stats import plot_covariance_ellipse
+import matplotlib.pyplot as plt
+
+P = [[2,0],[0,6]]
+plot_covariance_ellipse((2, 7), P, fc='g', alpha=0.2, 
+                        std=[1, 2, 3],
+                        title='|2 0|\n|0 6|')
+plt.gca().grid(b=False);
 plt.show()
