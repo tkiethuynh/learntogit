@@ -52,8 +52,30 @@ from filterpy.stats import plot_covariance_ellipse
 import matplotlib.pyplot as plt
 
 P = [[2,0],[0,6]]
-plot_covariance_ellipse((2, 7), P, fc='g', alpha=0.2, 
-                        std=[1, 2, 3],
-                        title='|2 0|\n|0 6|')
-plt.gca().grid(b=False);
-plt.show()
+#plot_covariance_ellipse((2, 7), P, fc='g', alpha=0.2, 
+#                        std=[1, 2, 3],
+#                        title='|2 0|\n|0 6|')
+#plt.gca().grid(b=False);
+
+##########################
+
+from kf_book.nonlinear_plots import plot_cov_ellipse_colormap
+#plot_cov_ellipse_colormap(cov=[[2, 1.2], [1.2, 1.3]]);
+
+#########################
+
+x = [2, 7]
+P = [[2, 1.2], [1.2, 2]]
+#plot_covariance_ellipse(x, P, fc='g', alpha=0.2)
+#plt.show()
+
+##########################
+
+P = [[4, 3.9], [3.9, 4]]
+
+#plot_covariance_ellipse((5,10), P, ec='k', std=[1, 2, 3])
+#plt.xlabel('X')
+#plt.ylabel('Y')
+#plt.show()
+
+##############################
