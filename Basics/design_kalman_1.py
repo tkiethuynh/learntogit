@@ -40,6 +40,8 @@ def tracker1():
                           [0, 0, 1/0.3048, 0]])
 
     tracker.R = np.eye(2) * R_std**2
+    # tracker.R = np.array([[1.0, 0.0],
+    #                     [0.0, 0.5]])
     q = Q_discrete_white_noise(dim=2, dt=dt, var=Q_std**2)
     tracker.Q = block_diag(q, q)
     tracker.x = np.array([[0, 0, 0, 0]]).T
@@ -56,7 +58,7 @@ zs = np.array([sensor.read() for _ in range(N)])
 # run filter
 robot_tracker = tracker1()
 mu, cov, _, _ = robot_tracker.batch_filter(zs)
-
+print(cov)
 for x, P in zip(mu, cov):
     # covariance of x and y
     cov = np.array([[P[0, 0], P[2, 0]],
@@ -71,3 +73,7 @@ plot_measurements(zs[:, 0], zs[:, 1])
 plt.legend(loc=2)
 plt.xlim(0, 20)
 plt.show()
+print(np.diag(robot_tracker.P))
+c = robot_tracker.P[0:2, 0:2]
+print(c)
+plot_covariance_ellipse((0,0), cov=c, fc='g', alpha=0.2)
